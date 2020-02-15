@@ -3,7 +3,25 @@
 }
 
 .body {
-  width: 90%;
+  padding: 0 10%;
+}
+
+.header {
+  color: white;
+  background-color: midnightblue;
+  top: 50%;
+  padding: 1% 2% 1%;
+}
+
+.category {
+  width: 180px;
+  height: 80px;
+  margin: 8px;
+  padding: 40px 10px;
+  text-align: left;
+  vertical-align: bottom;
+  border-radius: 5px;
+  background-color: lightgray;
 }
 
 @media (prefers-reduced-motion: no-preference) {

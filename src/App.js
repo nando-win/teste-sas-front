@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css'
 
 class App extends Component {
 
@@ -32,19 +33,24 @@ class App extends Component {
       return <div>Carregando...</div>;
     } else {
       return (
-        <div className="body">
+        <div>
+          <header className="header">
+            <div>Teste Dev Frontend</div>
+          </header>
+
+          <main className="body">
           <h1 className="title">Categorias</h1>
             {itens.results.map(item => (
-              <div className="category">
-                {item.category}
-              </div>
+              // <a href="" className="category">
+              //   {item.category}
+              // </a>
+              <button className="category">{item.category}</button>
             ))}
+          </main>
         </div>
       )
     }
-
   }
-
 }
 
 export default App;
