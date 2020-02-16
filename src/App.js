@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css'
 
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+
 class App extends Component {
 
   constructor(props) {
@@ -33,24 +35,53 @@ class App extends Component {
       return <div>Carregando...</div>;
     } else {
       return (
-        <div>
-          <header className="header">
-            <div>Teste Dev Frontend</div>
-          </header>
+        <Router>
+          <div>
+            <header className="header">
+              <div>Teste Dev Frontend</div>
+            </header>
 
-          <main className="body">
-          <h1 className="title">Categorias</h1>
-            {itens.results.map(item => (
-              // <a href="" className="category">
-              //   {item.category}
-              // </a>
-              <button className="category">{item.category}</button>
-            ))}
-          </main>
-        </div>
+            <main className="body">
+              <div>
+                <h1 className="title">Categorias</h1>
+                  {itens.results.map(item => (
+                    // <a href="" className="category">
+                    //   {item.category}
+                    // </a>
+                    
+                    <Link to="/questions">
+                      <button onClick="" className="category">
+                        {item.category}
+                      </button>
+                    </Link>
+                  ))}
+              </div>
+            </main>
+          </div>
+           
+          <Switch>
+            <Route exact path="/">
+              <Questions />
+            </Route>
+          </Switch>
+        </Router>
       )
     }
   }
+}
+
+function Categories() {
+  return {
+    
+  }
+}
+
+function Questions() {
+  return (
+    <div className="body">
+      <h1 className="title">Categorias</h1>
+    </div>
+  )
 }
 
 export default App;
