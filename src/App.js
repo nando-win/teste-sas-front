@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css'
 
+import Home from './Views/Home';
+
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 class App extends Component {
@@ -29,11 +31,6 @@ class App extends Component {
 
   render() {
     
-    var { isLoaded, itens } = this.state;
-
-    if(!isLoaded) {
-      return <div>Carregando...</div>;
-    } else {
       return (
         <Router>
           <div>
@@ -41,34 +38,19 @@ class App extends Component {
               <div>Teste Dev Frontend</div>
             </header>
 
-            <main className="body">
-              <div>
-                <h1 className="title">Categorias</h1>
-                  {itens.results.map(item => (
-                    // <a href="" className="category">
-                    //   {item.category}
-                    // </a>
-                    
-                    <Link to="/questions">
-                      <button onClick="" className="category">
-                        {item.category}
-                      </button>
-                    </Link>
-                  ))}
-              </div>
-            </main>
+            <div className="body">
+              <Switch>
+                <Route exact path='/' component={ Home } />
+              </Switch>
+            </div>
           </div>
            
-          <Switch>
-            <Route exact path="/">
-              <Questions />
-            </Route>
-          </Switch>
+          
         </Router>
       )
     }
   }
-}
+
 
 function Categories() {
   return {
