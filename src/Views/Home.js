@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import '../App.css'
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
-import '../App.css'
 
 class Home extends Component {
 
@@ -34,29 +33,29 @@ class Home extends Component {
 
     render() {
     
-        var { isLoaded, itens } = this.state;
-    
-        if(!isLoaded) {
-          return <div>Loading...</div>;
-        } else {
-          return (
-            <Router>
-              <div>
-                <main className="body">
-                    <h1 className="title">Categorys</h1>
-                      {itens.results.map(item => (
-                        <Link to="/Questions">
-                          <button onClick="choseCategory(item.category)" className="item.category">
-                            {item.category}
-                          </button>
-                        </Link>
-                    ))}
-                </main>
-              </div>
-            </Router>
-        )
-        }
+      var { isLoaded, itens } = this.state;
+  
+      if(!isLoaded) {
+        return <div>Loading...</div>;
+      } else {
+        return (
+          <Router>
+            <div>
+              <main>
+                  <h1 className="title">Categorys</h1>
+                    {itens.results.map(item => (
+                      <Link to="/Questions">
+                        <button onClick="choseCategory(item.category)" className="category">
+                          {item.category}
+                        </button>
+                      </Link>
+                  ))}
+              </main>
+            </div>
+          </Router>
+      )
     }
+  }
 }
 
 export default Home;

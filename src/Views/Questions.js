@@ -40,12 +40,12 @@ class Questions extends Component {
             <Router>
               <div>
                 <main className="body">
-                <h1 className="title">{item.category}</h1>
+                {/* <h1 className="title">{item.category}</h1>
                 <button>Fechar</button>
                 <div>
                     <div>Questão {i}</div>
                     <div>{item.difficulty}</div>
-                </div>
+                </div> */}
                 <div>
                 </div>
                 </main>
