@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+import '../App.css'
 
 class Home extends Component {
 
@@ -25,36 +27,36 @@ class Home extends Component {
           console.log(err)
         });
       }
+
+    //   chooseCategory(category) {
+    //     fetch("https://opentdb.com/api.php?amount=1" + category + "dificult=medium" + "type=multiple" )
+    // }
+
     render() {
     
         var { isLoaded, itens } = this.state;
     
         if(!isLoaded) {
-          return <div>Carregando...</div>;
+          return <div>Loading...</div>;
         } else {
           return (
             <Router>
               <div>
                 <main className="body">
-                    <h1 className="title">Categorias</h1>
+                    <h1 className="title">Categorys</h1>
                       {itens.results.map(item => (
-                        // <a href="" className="category">
-                        //   {item.category}
-                        // </a>
-                        
-                        <Link to="/questions">
-                          <button onClick="" className="category">
+                        <Link to="/Questions">
+                          <button onClick="choseCategory(item.category)" className="item.category">
                             {item.category}
                           </button>
                         </Link>
-                      ))}                  
+                    ))}
                 </main>
               </div>
-               
             </Router>
-          )
+        )
         }
-      }
+    }
 }
 
 export default Home;

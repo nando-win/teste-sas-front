@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 
 import Home from './Views/Home';
+import Questions from './Views/Questions';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
@@ -41,6 +42,7 @@ class App extends Component {
             <div className="body">
               <Switch>
                 <Route exact path='/' component={ Home } />
+                <Route exact path='/Questions' component={ Questions } />
               </Switch>
             </div>
           </div>
@@ -50,20 +52,5 @@ class App extends Component {
       )
     }
   }
-
-
-function Categories() {
-  return {
-    
-  }
-}
-
-function Questions() {
-  return (
-    <div className="body">
-      <h1 className="title">Categorias</h1>
-    </div>
-  )
-}
 
 export default App;
