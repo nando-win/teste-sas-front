@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import componentDidMount from './Home'
+import * as HomeModule from './Home'
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
@@ -10,49 +10,47 @@ class Questions extends Component {
         super(props);
         this.state = {
             questionsPack: [],
-            isLoaded: false
+            isLoaded: true
         }
 
-        this.questionsPack = componentDidMount
+        // this.questionsPack = HomeModule.componentDidMount
       }
     
-    //   componentDidMount() {
-    //     fetch("https://opentdb.com/api.php?amount=10")
-    //     .then( res => res.json())
-    //     .then( json => {
-    //       this.setState({
-    //         itens: json || [],
-    //         isLoaded: true
-    //       })
-    //     })
-    //     .catch((err) => {
-    //       console.log(err)
-    //     });
-    //   }
+      componentDidMount() {
+        fetch("https://opentdb.com/api.php?amount=10")
+        .then( res => res.json())
+        .then( json => {
+          this.setState({
+            itens: json || [],
+            isLoaded: true
+          })
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+      }
     render() {
     
-        var { isLoaded, itens } = this.state;
-    
-        if(!isLoaded) {
-          return <div>Carregando...</div>;
-        } else {
-          return (
-            <Router>
+      // var { itens } = this.questionsPack;
+  
+      
+        return (
+          <Router>
+            <div>
+              <main className="body">
+              <h1 className="title">{this.props.itens}</h1>
+              <button>Fechar</button>
               <div>
-                <main className="body">
-                {/* <h1 className="title">{item.category}</h1>
-                <button>Fechar</button>
-                <div>
-                    <div>Questão {i}</div>
+                  <div>Questão 1</div>
+                  {/* {itens.results.map(item => (
                     <div>{item.difficulty}</div>
-                </div> */}
-                <div>
-                </div>
-                </main>
+                  ))} */}
               </div>
-            </Router>
+              </main>
+            </div>
+          </Router>
         )
-        }
+      
     }
 }
 

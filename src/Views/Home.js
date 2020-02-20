@@ -3,7 +3,7 @@ import '../App.css'
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-class Home extends Component {
+export class Home extends Component {
 
     constructor(props) {
         super(props);
@@ -12,8 +12,12 @@ class Home extends Component {
           isLoaded: false
         }
       }
-    
+
       componentDidMount() {
+        this.loadAPI();
+      }
+
+      loadAPI() {
         fetch("https://opentdb.com/api.php?amount=10")
         .then( res => res.json())
         .then( json => {
@@ -27,9 +31,9 @@ class Home extends Component {
         });
       }
 
-    //   chooseCategory(category) {
-    //     fetch("https://opentdb.com/api.php?amount=1" + category + "dificult=medium" + "type=multiple" )
-    // }
+      setQuestion(question){
+        return this.itens = question 
+      }
 
     render() {
     
@@ -42,14 +46,15 @@ class Home extends Component {
           <Router>
             <div>
               <main>
-                  <h1 className="title">Categorys</h1>
-                    {itens.results.map(item => (
-                      <Link to="/Questions">
-                        <button onClick="choseCategory(item.category)" className="category">
-                          {item.category}
-                        </button>
-                      </Link>
-                  ))}
+                <h1 className="title">Categorys</h1>
+                  {itens.results.map(item => (
+                    <Link to="/Questions">
+                      <button onClick="setQuestion({item.question})" className="category">
+                        {item.category}
+                      </button>
+                      
+                    </Link>
+                ))}
               </main>
             </div>
           </Router>

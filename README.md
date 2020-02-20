@@ -1,6 +1,8 @@
 Dependecies used:
 
-### react-router-dom: 5.1.2
+# react-router-dom: 5.1.2
+# redux
+# react-redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
